@@ -37,5 +37,4 @@ The web app also displays visualizations of the data as follows: disaster graph1
 
     GitHub link:
 
-    https://github.com/mudigosa/Disaster-Response-Pipelines
-
+https://github.com/koustubha-prog/disaster-response-pipeline1
