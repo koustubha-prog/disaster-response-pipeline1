@@ -26,10 +26,11 @@ def load_data(database_filepath):
         Y: Training target.
         category_names: Categorical name for labeling.
     '''
-    engine = create_engine('sqlite:///'+ database_filepath)
-    df = pd.read_sql_table('FigureEight', engine)
-    X = df.message.values
-    Y = df[df.columns[4:]].values
+    engine = create_engine('sqlite:///data/DisasterResponse.db')
+    df =  pd.read_sql_table('DisasterResponse', engine)
+    
+     X = df.original.values
+    Y = df[df.iloc[:, 3:]].values
     category_names = list(df.columns[4:])
     return X, Y, category_names
 
