@@ -42,7 +42,7 @@ model = pickle.load(open("../models/classifier.pkl", 'rb'))
 def index():
 
     # extract data needed for visuals
-    genre_counts = df.groupby('genre').count()['original']
+    genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
 
     # Show distribution of different category
