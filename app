@@ -28,26 +28,12 @@ def tokenize(text):
 
 # load data
 engine = create_engine('sqlite:///../data/DisasterResponse.db')
-df = pd.read_sql_table('FigureEight', engine)
-# load data
-engine = create_engine('sqlite:///../data/DisasterResponse.db')
 df =  pd.read_sql_table('DisasterResponse', engine)
 
 print(df.head())
 
 # load model
 model = pickle.load(open("../models/classifier.pkl", 'rb'))
-print(model)
-
-X = df.message.values
-y = df.iloc[:,5:]
-
-keys = list(y.columns)
-my_dict = {key: None for key in keys}
-
-for key, value in my_dict.items():
-    my_dict[key] = ((y[key] == 1)).sum()
-
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -56,7 +42,7 @@ for key, value in my_dict.items():
 def index():
 
     # extract data needed for visuals
-    genre_counts = df.groupby('genre').count()['message']
+    genre_counts = df.groupby('genre').count()['original']
     genre_names = list(genre_counts.index)
 
     # Show distribution of different category
