@@ -26,8 +26,8 @@ def load_data(database_filepath):
         Y: Training target.
         category_names: Categorical name for labeling.
     '''
-    engine = create_engine('sqlite:///data/DisasterResponse.db')
-    df =  pd.read_sql_table('DisasterResponse', engine)
+engine = create_engine('sqlite:///disastermessages.db')
+df = pd.read_sql_table('disastermessage', engine)
     
      X = df.original.values
     Y = df[df.iloc[:, 3:]].values
