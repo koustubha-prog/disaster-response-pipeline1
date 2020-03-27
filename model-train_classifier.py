@@ -22,7 +22,7 @@ def load_data(database_filepath):
     input:
         database_filepath: File path where sql database was saved.
     output:
-        X: Training message List.
+        X: Training original List.
         Y: Training target.
         category_names: Categorical name for labeling.
     '''
